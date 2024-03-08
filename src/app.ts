@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 import {bootstrap} from 'fastify-decorators';
 import {resolve} from 'path'
-
+import "reflect-metadata"
 function createServer() {
     const server = Fastify({
         logger: true
