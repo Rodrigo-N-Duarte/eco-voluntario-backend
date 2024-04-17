@@ -1,7 +1,5 @@
 import {DataSource} from "typeorm";
 import {User} from "./entity/User";
-import {Enterprise} from "./entity/Enterprise";
-import {UserEnterprise} from "./entity/UserEnterprise";
 import {Project} from "./entity/Project";
 import {UserProject} from "./entity/UserProject";
 import {Comment} from "./entity/Comment";
@@ -17,11 +15,9 @@ export const AppDataSource = new DataSource({
   logging: true,
   entities: [
     User,
-    Enterprise,
     Project,
     Comment,
 
-    UserEnterprise,
     UserProject
   ],
   subscribers: [],

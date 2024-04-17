@@ -1,4 +1,3 @@
-import {AutoMap} from "@automapper/classes";
 import {User} from "../../database/entity/User";
 
 export class ResponseCreateUserDTO {

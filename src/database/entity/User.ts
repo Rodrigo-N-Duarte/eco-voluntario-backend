@@ -1,5 +1,4 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn} from "typeorm";
-import {UserEnterprise} from "./UserEnterprise";
 import {UserProject} from "./UserProject";
 import {Comment} from "./Comment";
 import {AutoMap} from "@automapper/classes";
@@ -36,9 +35,6 @@ export class User extends BaseEntity {
   @UpdateDateColumn()
   @AutoMap()
   updatedAt: Date
-
-  @OneToMany(() => UserEnterprise, userEnterprise => userEnterprise.user)
-  enterprises: UserEnterprise[]
 
   @OneToMany(() => UserProject, userProject => userProject.user)
   projects: UserProject[]

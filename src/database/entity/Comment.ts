@@ -1,8 +1,5 @@
 import {BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {User} from "./User";
-import {Enterprise} from "./Enterprise";
-import {UserEnterpriseRole} from "../enums/UserEnterpriseRole";
-import {UserProjectRole} from "../enums/UserProjectRole";
 import {Project} from "./Project";
 
 @Entity("tb_comment")
