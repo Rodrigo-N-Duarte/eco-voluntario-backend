@@ -9,12 +9,12 @@ export default class CommentController {
   private readonly commentService = new CommentService()
 
   @POST('/')
-  async createComment (request: any): Promise<ResponseCreateCommentDTO | null> {
-    return this.commentService.createComment(request.body);
+  async createComment (request: any, response: any): Promise<ResponseCreateCommentDTO | null> {
+    return this.commentService.createComment(request, response);
   }
 
   @GET("/product/:id")
-  async getAllCommentsByProduct (request: any): Promise<ResponseCreateCommentDTO[]> {
-    return this.commentService.getAllCommentsByProduct(request.params.id)
+  async getAllCommentsByProduct (request: any, response: any): Promise<ResponseCreateCommentDTO[]> {
+    return this.commentService.getAllCommentsByProduct(request, response)
 }
 }

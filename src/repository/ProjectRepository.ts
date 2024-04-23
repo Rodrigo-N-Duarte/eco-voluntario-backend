@@ -10,4 +10,12 @@ export class ProjectRepository {
       return null
     }
   }
+
+  async getAll(): Promise<Project[]> {
+    try {
+      return await this.repository.find()
+    } catch (e) {
+      return []
+    }
+  }
 }

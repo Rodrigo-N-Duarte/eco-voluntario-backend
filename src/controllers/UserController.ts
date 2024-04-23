@@ -8,12 +8,12 @@ export default class UserController {
   private readonly userService = new UserService()
 
   @POST('/')
-  async createUser (request: any): Promise<ResponseCreateUserDTO | null> {
-    return this.userService.createUser(request.body);
+  async createUser (request: any, response: any): Promise<ResponseCreateUserDTO | null> {
+    return this.userService.createUser(request, response);
   }
 
   @GET('/:id')
-  async getOneUser (request: any): Promise<ResponseCreateUserDTO | null> {
-    return this.userService.getOneUser(request.params.id);
+  async getOneUser (request: any, response: any): Promise<ResponseCreateUserDTO> {
+    return this.userService.getOneUser(request, response);
   }
 }
