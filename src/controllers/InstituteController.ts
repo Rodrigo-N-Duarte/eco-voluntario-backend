@@ -27,9 +27,9 @@ export default class InstituteController {
       return this.InstituteService.getOneInstitute(request, response);
     }
 
-    @GET('/')
-    async getAllInstitute (request: any, response: any) {
-      return this.InstituteService.getAllInstitute(request, response);
+    @GET('/all')
+    async getAllInstitutes (request: any, response: any) {
+      return this.InstituteService.getAllInstitutes(request, response);
     }
 }
   

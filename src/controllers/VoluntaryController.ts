@@ -27,9 +27,9 @@ export default class voluntaryController {
       return this.voluntaryService.getOneVoluntary(request, response);
     }
 
-    @GET('/')
-    async getAllVoluntary (request: any, response: any) {
-      return this.voluntaryService.getAllVoluntary(request, response);
+    @GET('/all')
+    async getAllVoluntaries (request: any, response: any) {
+      return this.voluntaryService.getAllVoluntaries(request, response);
     }
 }
   
