@@ -10,4 +10,12 @@ export class UserRepository {
       return null
     }
   }
+
+  async getOneByEmail(email: string): Promise<User | null> {
+    try {
+      return await this.repository.findOneBy({email: email})
+    } catch (e) {
+      return null
+    }
+  }
 }

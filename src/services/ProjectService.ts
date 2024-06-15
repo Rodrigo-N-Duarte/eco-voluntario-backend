@@ -54,4 +54,44 @@ export class ProjectService {
     const projects: Project[] = await this.projectRepository.getAll()
     return projects.map(project => ResponseCreateProjectDTO.createMap(project))
   }
+
+  async getMyProjects(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
+    const userId: number = request.params.userId;
+    if (userId) {
+      const projects: Project[] = await this.projectRepository.getCreatedProjects(userId)
+      return projects.map(project => ResponseCreateProjectDTO.createMap(project))
+    } else return []
+  }
+
+  async getMyParticipantProjects(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
+    const userId: number = request.params.userId;
+    if (userId) {
+      const projects: Project[] = await this.projectRepository.getParticipantProjects(userId)
+      return projects.map(project => ResponseCreateProjectDTO.createMap(project))
+    } else return []
+  }
+
+  async participProject(request: any, response: any): Promise<any> {
+    try {
+      const userId: number = request.body.userId;
+      const projectId: number = request.body.projectId;
+      const role: number = request.body.role;
+      if (userId && projectId) {
+        const user: User | null = await this.userRepository.getOne(userId)
+        const project: Project | null = await this.projectRepository.getOne(projectId)
+        if (project && user) {
+          const userProject: UserProject = new UserProject()
+          userProject.project = project
+          userProject.user = user
+          if (role == 1) userProject.role = UserProjectRole.ADMIN
+            else userProject.role = UserProjectRole.VOLUNTEER
+          await userProject.save()
+          return userProject
+        }
+        return null
+      } else return null
+    } catch (e) {
+      return null
+    }
+  }
 }

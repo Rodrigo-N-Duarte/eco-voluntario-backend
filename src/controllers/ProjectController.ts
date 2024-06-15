@@ -20,4 +20,19 @@ export default class ProjectController {
   async getAllProjects(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
     return this.projectService.getAllProjects(request, response)
   }
+
+  @GET("/my-projects/:userId")
+  async getMyProjects(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
+    return this.projectService.getMyProjects(request, response)
+  }
+
+  @GET("/participant-projects/:userId")
+  async getMyParticipantProjects(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
+    return this.projectService.getMyParticipantProjects(request, response)
+  }
+
+  @POST("/particip")
+  async participProject(request: any, response: any): Promise<ResponseCreateProjectDTO[]> {
+    return this.projectService.participProject(request, response)
+  }
 }
