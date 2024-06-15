@@ -1,21 +1,6 @@
 version: '3.8'
 
 services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - '3000:3000'
-    container_name: ecovoluntario-api
-    restart: always
-    volumes:
-      - api-logs:/usr/src/node-api/logs:rw
-    environment:
-      - NODE_ENV=development
-    depends_on:
-      - mysql
-
   mysql:
     image: mysql:latest
     container_name: mysql-ecovoluntario
@@ -23,14 +8,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: ecovoluntario-db
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
       - "3306:3306"
 
 volumes:
-  api-logs:
   mysql_data:
     driver: local

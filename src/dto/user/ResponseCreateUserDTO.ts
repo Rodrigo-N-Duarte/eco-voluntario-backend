@@ -3,7 +3,6 @@ import {User} from "../../database/entity/User";
 export class ResponseCreateUserDTO {
   id: number;
   name: string
-  secondName: string
   email: string
   image: string
   createdAt: Date
@@ -14,7 +13,6 @@ export class ResponseCreateUserDTO {
     response.id = user.id
     response.email = user.email
     response.name = user.name
-    response.secondName = user.secondName
     response.createdAt = user.createdAt
     response.updatedAt = user.updatedAt
     return response
