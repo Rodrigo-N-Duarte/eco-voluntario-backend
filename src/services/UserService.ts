@@ -8,15 +8,15 @@ import bcrypt from 'bcrypt'
 export class UserService {
   userRepository: UserRepository = new UserRepository()
 
-  async login(request: any, response: any): Promise<boolean> {
+  async login(request: any, response: any): Promise<ResponseCreateUserDTO | null> {
     const body: LoginBodyDTO = request.body
     const user: User | null = await this.userRepository.getOneByEmail(body.email)
     if (user) {
       if (await bcrypt.compare(body.password, user.password)) {
-        return true
+        return ResponseCreateUserDTO.createMap(user)
       }
     }
-    return false
+    return null
   }
 
   async createUser(request: any, response: any): Promise<ResponseCreateUserDTO | null> {

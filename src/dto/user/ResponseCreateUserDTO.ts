@@ -13,6 +13,7 @@ export class ResponseCreateUserDTO {
     response.id = user.id
     response.email = user.email
     response.name = user.name
+    response.image = user.image
     response.createdAt = user.createdAt
     response.updatedAt = user.updatedAt
     return response
