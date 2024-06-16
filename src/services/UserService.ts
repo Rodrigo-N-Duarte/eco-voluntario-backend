@@ -28,7 +28,7 @@ export class UserService {
     const salt: string = await bcrypt.genSalt(12)
     const hash: string = await bcrypt.hash(body.password, salt)
     user.password = hash
-    user.image = body.image
+    user.image = body.image || ""
     try {
       await user.save();
       return ResponseCreateUserDTO.createMap(user)

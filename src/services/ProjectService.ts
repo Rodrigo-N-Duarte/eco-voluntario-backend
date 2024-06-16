@@ -21,7 +21,7 @@ export class ProjectService {
     project.objective = body.objective
     project.description = body.description
     project.location = body.location
-    project.image = body.image
+    project.image = body.image || ""
     try {
       await project.save();
       const userProject: UserProject = new UserProject()
