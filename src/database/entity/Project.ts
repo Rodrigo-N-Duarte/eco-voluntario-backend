@@ -19,7 +19,7 @@ export class Project extends BaseEntity {
   @Column()
   location: string
 
-  @Column()
+  @Column("longtext")
   image: string
 
   @CreateDateColumn()
